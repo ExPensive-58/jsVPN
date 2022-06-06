@@ -1,0 +1,14 @@
+𝗘𝘅𝗣𝗲𝗻𝘀𝗶𝘃𝗲, [06.06.22 16:00]
+var body = $response.body;
+var url = $request.url;
+var obj = JSON.parse(body);
+
+const VPN_vip = '/api/v2/customers/me';
+
+if (url.indexOf(VPN_vip) != -1) {
+ obj.user.isVip = true;
+ obj.user.vipExp = "2099-03-14T16:00:00.000Z";
+ body = JSON.stringify(obj);
+}
+
+$done({body});
